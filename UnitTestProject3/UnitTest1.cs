@@ -98,5 +98,12 @@ namespace UnitTestProject3
 
             Assert.AreEqual(currentConsoleOut, Console.Out);
         }
+
+        [TestMethod]
+        public void TestMethod5()
+        {
+            album cu = new album();
+            cu.getAlbums("");
+        }
     }
 }

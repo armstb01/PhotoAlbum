@@ -18,6 +18,7 @@ namespace ConsoleApplication1
     //"title": "accusamus beatae ad facilis cum similique qui sunt",
     //"url": "http://placehold.it/600/92c952",
     //"thumbnailUrl": "http://placehold.it/150/30ac17"
+
     public class album
     {
         static string baseUrl = "https://jsonplaceholder.typicode.com/photos";
@@ -32,11 +33,17 @@ namespace ConsoleApplication1
         {
 
             int result = 0;
+            string url = baseUrl;
 
-            if (int.TryParse(command, out result))
+            if (int.TryParse(command, out result) || command == "")
             {
+                if(command != "")
+                {
+                    url = url + "?albumId=" + command;
+                }
+
                 //Send webRequest
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(baseUrl + "?albumId=" + command);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 //Get the Web Response
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -66,7 +73,7 @@ namespace ConsoleApplication1
             }
             else
             {
-                if(command == null)
+                if (command == null)
                 {
                     Console.WriteLine("You get nothin' 4 nothin' . . .  ");
                 }
