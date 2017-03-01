@@ -77,7 +77,7 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("You get nothin' 4 nothin' . . .  ");
                 }
-                else
+                else if (command != "quit")
                 {
                     Console.WriteLine("Sorry, we only accept Integers or cash!");
                 }
